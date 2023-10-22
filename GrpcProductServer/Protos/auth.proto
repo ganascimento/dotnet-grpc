@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+option csharp_namespace = "GrpcProductServer";
+
+package greet;
+
+service Auth {
+  rpc Create (CreateUserRequest) returns (CreateUserReply);
+  rpc Login (LoginRequest) returns (TokenReply);
+}
+
+message CreateUserRequest {
+  string login = 1;
+  string userName = 2;
+  string password = 3;
+}
+
+message CreateUserReply {
+  int32 id = 1;
+  string login = 2;
+}
+
+message LoginRequest {
+  string login = 1;
+  string password = 2;
+}
+
+message TokenReply {
+  string userName = 1;
+  string token = 2;
+}

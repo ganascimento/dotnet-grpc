@@ -1,0 +1,47 @@
+syntax = "proto3";
+
+option csharp_namespace = "GrpcProductServer";
+
+package greet;
+
+service Product {
+  rpc Get (GetProductRequest) returns (ProductReply);
+  rpc GetAll (GetAllProductRequest) returns (ProductListReply);
+  rpc Create (CreateProductRequest) returns (ProductReply);
+  rpc Update (UpdateProductRequest) returns (ProductReply);
+  rpc Delete (DeleteProductRequest) returns (ProductReply);
+}
+
+message GetProductRequest {
+  int32 id = 1;
+}
+
+message GetAllProductRequest {}
+
+message ProductReply {
+  int32 id = 1;
+  string name = 2;
+  string description = 3;
+  double value = 4;
+}
+
+message CreateProductRequest {
+  string name = 1;
+  string description = 2;
+  double value = 3;
+}
+
+message ProductListReply {
+  repeated ProductReply products = 1;
+}
+
+message UpdateProductRequest {
+  int32 id = 1;
+  string name = 2;
+  string description = 3;
+  double value = 4;
+}
+
+message DeleteProductRequest {
+  int32 id = 1;
+}

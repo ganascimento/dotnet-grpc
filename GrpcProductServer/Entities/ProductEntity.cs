@@ -1,0 +1,9 @@
+namespace GrpcProductServer.Entities;
+
+public class ProductEntity
+{
+    public int? Id { get; set; }
+    public required string Name { get; set; }
+    public required string Description { get; set; }
+    public required double Value { get; set; }
+}
